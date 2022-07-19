@@ -10,7 +10,7 @@ class RegistrationForm(UserCreationForm):
 
 	class Meta:
 		model = User
-		fields = ('email', 'password', )
+		fields = ('email', 'username', 'password1', 'password2', )
 
 	def clean_email(self):
 		email = self.cleaned_data['email'].lower()
@@ -20,6 +20,13 @@ class RegistrationForm(UserCreationForm):
 			return email
 		raise forms.ValidationError('Email "%s" is already in use.' % account)
 
+	def clean_username(self):
+		username = self.cleaned_data['username']
+		try:
+			account = User.objects.exclude(pk=self.instance.pk).get(username=username)
+		except User.DoesNotExist:
+			return username
+		raise forms.ValidationError('Username "%s" is already in use.' % username)
 
 class AccountAuthenticationForm(forms.ModelForm):
 
@@ -43,7 +50,7 @@ class UserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['email']
+        fields = ['username', 'email']
 
 # Create a ProfileUpdateForm to update image
 class ProfileUpdateForm(forms.ModelForm):
