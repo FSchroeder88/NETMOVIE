@@ -18,17 +18,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 
 
@@ -66,18 +59,16 @@
             <main class="mdl-layout__content">
                 <div class="page-content">
 
-                    <!--Register Content-->
+                    <!--Welcome Content-->
                     <div class="welcome-text-container">
                         <h1 class="welcome-text">
-                            Unbegrenzt Filme, Serien und mehr schauen.
-                            &#127909
+                            Unbegrenzt Filme, Serien und mehr schauen. &#127909
                         </h1>
                         <h2 class="welcome-text2">
                             Genießen Sie NetMovie, wo und wann Sie möchten. Jederzeit kündbar !
                         </h2>
                         <h3 class="welcome-text3">
-                            Geben Sie Ihre E-Mail-Adresse ein, um Ihre Mitgliedschaft zu beginnen.
-                            &#127942
+                            Geben Sie Ihre E-Mail-Adresse ein, um Ihre Mitgliedschaft zu beginnen. &#127942
                         </h3>
                         <button class="mdl-button mdl-js-button mdl-button--raised" href="{% url 'register' %}">
                             Registrieren
@@ -86,8 +77,10 @@
 
                     {% block content %}
 
-                    {% endblock %}
                     <!-- Your content goes here -->
+
+                    {% endblock %}
+
                 </div>
             </main>
         </div>

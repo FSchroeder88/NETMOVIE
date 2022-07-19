@@ -76,4 +76,4 @@ def save(self, *args, **kwargs):
         output_size = (300, 300)
         img.thumbnail(output_size) # Resize image
         img.save(self.image.path) # Save it again and override the larger image
-# Create your models here.
+

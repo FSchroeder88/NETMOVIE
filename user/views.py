@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def home(request):
-    return render(request, "home.html")    
+    return render(request, 'home.html')    
 
 def register_view(request, *args, **kwargs):
     user = request.user
@@ -36,12 +36,12 @@ def register_view(request, *args, **kwargs):
     else:
         form = RegistrationForm()
         context['registration_form'] = form
-    return render(request, 'user/register.html', context)
+    return render(request, 'register.html', context)
 
 
 def logout_view(request):
     logout(request)
-    return redirect("login")
+    return redirect('login')
 
 
 def login_view(request, *args, **kwargs):
@@ -49,7 +49,7 @@ def login_view(request, *args, **kwargs):
 
     user = request.user
     if user.is_authenticated:
-        return redirect("video")
+        return redirect('video')
 
     destination = get_redirect_if_exists(request)
     print("destination: " + str(destination))
@@ -65,14 +65,14 @@ def login_view(request, *args, **kwargs):
                 login(request, user)
                 if destination:
                     return redirect(destination)
-                return redirect("video")
+                return redirect('video')
 
     else:
         form = AccountAuthenticationForm()
 
     context['login_form'] = form
 
-    return render(request, "user/login.html", context)
+    return render(request, 'login.html', context)
 
 
 def get_redirect_if_exists(request):
