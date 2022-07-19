@@ -1,0 +1,96 @@
+body,
+html {
+    height: 100%;
+}
+
+.bg {
+    background-image: url("background.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mdl-layout__header-row {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.mdl-layout-spacer {
+    display: contents;
+}
+
+.logo {
+    width: 100px;
+}
+
+.mdl-button {
+    background-color: #b7040c !important;
+    right: 30px;
+    color: white !important;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+.btn-primary {
+    background-color: #b7040c !important;
+    border-color: #b7040c !important;
+    font-family: 'Roboto';
+    margin-top: 20px;
+}
+
+.form-signin {
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.user-date {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-body {
+    background: rgba(51, 49, 49, 0.9);
+    
+}
+
+.card {
+    background-color: rgba(51, 49, 49, 0.9) !important;
+}
+
+.welcome-text-container {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.welcome-text {
+    width: fit-content;
+    color: white;
+    font-family: 'Roboto';
+    font-size: 50px;
+    background: rgba(51, 49, 49, 0.9);
+}
+
+.welcome-text2 {
+    width: fit-content;
+    color: white;
+    font-family: 'Roboto';
+    font-weight: 300;
+    background: rgba(51, 49, 49, 0.9);
+}
+
+.welcome-text3 {
+    width: fit-content;
+    color: white;
+    font-family: 'Roboto';
+    font-weight: 200;
+    background: rgba(51, 49, 49, 0.9);
+}
