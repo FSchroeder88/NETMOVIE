@@ -32,7 +32,7 @@ from user.views import (
 
 urlpatterns = [
     path('', views.home),
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('video/', video, name="video"),
     path('login/', login_view, name="login"),
     path('logout/', logout_view, name="logout"),
