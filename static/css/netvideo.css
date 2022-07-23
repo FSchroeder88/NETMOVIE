@@ -112,3 +112,17 @@ html {
 .user-picture:hover {
     cursor: pointer;
 }
+
+.video-content {
+    position: absolute;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.video-content-2 {
+    padding: 10px;
+}

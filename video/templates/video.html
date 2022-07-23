@@ -45,7 +45,7 @@
 
                 <div class="mdl-dialog__actions">
                     <img class="user-picture" id="show-dialog" src="{{ request.user.profile_image.url }}">
-                    <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                    <a class="mdl-button mdl-js-button mdl-button--raised" href="{% url 'logout' %}">Logout</a>
 
                 </div>
                 {% else %}
@@ -63,18 +63,23 @@
     </header>
 
     <div class="bg-video">
-        <h1>Video</h1>
 
-        {% if request.user.is_authenticated %} {% for e in movies %}
 
-        <br><br>
-        <video width='400' controls="controls">
-            <source src='{{ MEDIA_URL }}{{ e.video_file }}' type='video/mp4'></source>
-            Your browser does not support the video tag.
-        </video>
-        <br><br>
-        </p>
-        {% endfor %} {% endif %}
+        {% if request.user.is_authenticated %}
+        <div class="video-content">
+            {% for e in movies %}
+            <div class="video-content-2">
+                <video width='400' controls="controls">
+                    <source src='{{ MEDIA_URL }}{{ e.video_file }}' type='video/mp4'>
+                    </source>
+                    Your browser does not support the video tag.
+                </video>
+                <br>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
 
 
     </div>
