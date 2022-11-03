@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from user.models import User
-
+from .models import Profile
 
 
 class AccountAdmin(UserAdmin):
@@ -15,3 +15,4 @@ class AccountAdmin(UserAdmin):
     fieldsets= ()
 
 admin.site.register(User, AccountAdmin)
+admin.site.register(Profile)

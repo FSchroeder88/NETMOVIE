@@ -1,11 +1,13 @@
+from video.tasks import convert_480p
 from .models import Video
 from django.dispatch import receiver
 from django.db.models.signals import post_save, post_delete
 import os
 
-@receiver(post_save, sender=Video)
+@receiver(post_save, sender=Video) #Wird ausgeführt nach dem erstellen eines neuen Videos -> und in apps.py schauen, damit es ausgeführt wird
 def video_post_save(sender, instance, created, **kwargs):
     print('Video gespeichert')
+    convert_480p(instance.video_file.path)
 
 
 @receiver(post_delete, sender=Video)
