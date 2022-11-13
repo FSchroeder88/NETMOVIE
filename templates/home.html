@@ -43,24 +43,16 @@
                         <a href="{% url 'video' %}">
                             <img class="logo" src="{% static 'images\logo.png' %}"></a>
 
-                        <div>
-                            <a href="{% url 'profile' %}">
-                                <img class="user-picture" id="show-dialog" src="{{ user.profile_image.url }}">
-                            </a>
-                        </div>
-
                         <div class="mdl-dialog__actions">
-                            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-
+                            <img class="user-picture" id="show-dialog" src="{{ user.profile_image.url }}">
                         </div>
 
                         <dialog class="mdl-dialog">
                             <div class="dialog-title-image">
                                 <div class="mdl-dialog__content">
-                                    <img class="user-picture-profile" id="show-dialog" src="{{ user.profile.image.url }}">
+                                    <img class="user-picture-profile" id="show-dialog" src="{{ user.profile_image.url }}">
                                 </div>
                                 <h4 class="mdl-dialog__title">{{ request.user }}</h4>
-
                             </div>
 
                             <div class="mdl-dialog__actions">
@@ -85,13 +77,16 @@
 
 
                         {% else %}
-                        <div>
-                            <a class="mdl-button mdl-js-button mdl-button--raised" href="{% url 'login' %}">
-                                Login
-                            </a>
-                            <a class="mdl-button mdl-js-button mdl-button--raised" href="{% url 'register' %}">
-                                Registrieren
-                            </a>
+                        <div class="header-content">
+                            <img class="logo" src="{% static 'images\logo.png' %}">
+                            <div class="header-content-login">
+                                <a class="mdl-button mdl-js-button mdl-button--raised" href="{% url 'login' %}">
+                                    Login
+                                </a>
+                                <a class="mdl-button mdl-js-button mdl-button--raised" href="{% url 'register' %}">
+                                    Registrieren
+                                </a>
+                            </div>
                         </div>
                         {% endif %}
                     </div>

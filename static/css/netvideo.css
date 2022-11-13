@@ -12,11 +12,9 @@ html {
 }
 
 .bg-video {
-    background-color: #2d2f33;
+    background-color: black;
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    width: 100%;
 }
 
 .mdl-layout__header-row {
@@ -25,6 +23,40 @@ html {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+    padding: unset !important;
+}
+
+.user-picture-profile {
+    width: 100px;
+    height: auto;
+}
+
+.mdl-dialog {
+    background-color: darkgray;
+}
+
+.mdl-dialog__title {
+    padding: 0px 24px 0px !important;
+}
+
+.mdl-dialog__actions {
+    margin-right: 60px;
+}
+
+.mdl-layout__content {
+    background-color: black;
+}
+
+.nav-link {
+    margin-right: 72px;
+    padding: unset !important;
+    color: black !important;
+}
+
+@media (max-width: 1024px) {
+    .mdl-layout__header {
+        display: block !important;
+    }
 }
 
 .mdl-layout-spacer {
@@ -32,32 +64,39 @@ html {
 }
 
 .logo {
-    width: 100px;
+    width: 80px;
+    margin-left: 60px;
 }
 
 .mdl-button {
     background-color: #b7040c !important;
     right: 30px;
     color: white !important;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-weight: 300;
 }
 
 .btn-primary {
     background-color: #b7040c !important;
     border-color: #b7040c !important;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     margin-top: 20px;
+}
+
+.form-control {
+    margin: 0.5rem !important;
 }
 
 .form-signin {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .user-date {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card-body {
@@ -69,18 +108,46 @@ html {
 }
 
 .welcome-text-container {
-    margin-top: 200px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 767.98px) {
+    .welcome-text-container {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .welcome-text {
+        font-size: 2rem !important;
+    }
+    .welcome-text2 {
+        font-size: 1.2rem;
+    }
+    .welcome-text3 {
+        font-size: 1.2rem;
+    }
 }
 
 .welcome-text {
     width: fit-content;
     color: white;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-size: 50px;
     background: rgba(51, 49, 49, 0.9);
 }
@@ -88,7 +155,7 @@ html {
 .welcome-text2 {
     width: fit-content;
     color: white;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-weight: 300;
     background: rgba(51, 49, 49, 0.9);
 }
@@ -96,7 +163,7 @@ html {
 .welcome-text3 {
     width: fit-content;
     color: white;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-weight: 200;
     background: rgba(51, 49, 49, 0.9);
 }
@@ -114,17 +181,146 @@ html {
 }
 
 .video-content {
-    position: absolute;
+    background-color: black;
     max-width: 100%;
+    height: 100%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 2%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+}
+
+h3 {
+    color: white !important;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    color: white !important;
+}
+
+#movies {
+    overflow-x: scroll;
+}
+
+#movies::-webkit-scrollbar {
+    width: 0;
+}
+
+button {
+    opacity: 0.2;
+    border-radius: 50% !important;
+}
+
+button:hover {
+    opacity: 1;
+}
+
+#prev {
+    position: absolute;
+    left: 3%;
+    top: 21%;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#next {
+    position: absolute;
+    right: 2%;
+    top: 21%;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#prev2 {
+    position: absolute;
+    left: 3%;
+    top: 50%;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#next2 {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#prev3 {
+    position: absolute;
+    left: 3%;
+    top: 78%;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#next3 {
+    position: absolute;
+    right: 2%;
+    top: 78%;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .video-content-2 {
-    padding: 10px;
+    padding: 15px;
+    position: relative;
+    max-height: 150px;
+}
+
+.new-releases {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.new-releases-movies {
+    display: flex;
+    flex-direction: row;
+}
+
+.movies {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.movies-movies {
+    display: flex;
+    flex-direction: row;
+}
+
+.serien {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.serien-movies {
+    display: flex;
+    flex-direction: row;
+}
+
+.image {
+    width: 400px;
+    height: 225px;
+    position: absolute;
+    z-index: 20;
+    display: block;
+}
+
+.clip {
+    position: relative;
 }
 
 
@@ -132,6 +328,8 @@ html {
 
 .video {
     width: 100%;
+    z-index: 1;
+    height: 100vh;
     border: 1px solid black;
 }
 

@@ -23,11 +23,13 @@ class AccountManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-def get_profile_image_filepath(self):
+
+
+def get_profile_image_filepath(self, filename):
     return f'profile_images/{self.pk}/{"profile_image.png"}'
 
 def get_default_profile_image():
-    return "media/images/default.jpg"
+    return "media/static/images/default.jpg"
 
 class User(AbstractBaseUser):
 
@@ -64,19 +66,19 @@ class User(AbstractBaseUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE) # Delete profile when user is deleted
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    # image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    image = models.ImageField(default=get_default_profile_image, null=True, blank=True, upload_to=get_profile_image_filepath)
 
     def __str__(self):
         return f'{self.user.username} Profile' 
 
-def save(self, *args, **kwargs):
-    super(Profile, self).save(*args, **kwargs)
-
-    img = Image.open(self.image.path) # Open image
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
+        img = Image.open(self.image.path) # Open image
         
-    # resize image
-    if img.height > 300 or img.width > 300:
-        output_size = (300, 300)
-        img.thumbnail(output_size) # Resize image
-        img.save(self.image.path) # Save it again and override the larger image
+        # resize image
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size) # Resize image
+            img.save(self.image.path) # Save it again and override the larger image
 
