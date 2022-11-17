@@ -15,49 +15,52 @@
                 <div>
                     <h3>Neuerscheinungen</h3>
                 </div>
-
-                <div class="new-releases-movies" id="movies">
-                    {% for e in movies %} {% if e.speciality == "Neuerscheinungen" %}
-                    <div class="video-content-2">
-                        <a href="{{ MEDIA_URL }}{{ e.video_file }}">
-                            <video class="clip" id="video" width='250' muted="muted" poster="{{ MEDIA_URL }}{{ e.image_file }}">
-                            <source src='{{ MEDIA_URL }}{{ e.video_file }}' type='video/mp4'>
-                            </source>
-                            Your browser does not support the video tag.
-                        </video>
-                            <br>
-                        </a>
+                <div class="container-content">
+                    <div class="new-releases-movies" id="movies">
+                        {% for e in movies %} {% if e.speciality == "Neuerscheinungen" %}
+                        <div class="video-content-2">
+                            <a href="{{ MEDIA_URL }}{{ e.video_file }}">
+                                <video class="clip" id="video" width='250' muted="muted" poster="{{ MEDIA_URL }}{{ e.image_file }}">
+                                    <source src='{{ MEDIA_URL }}{{ e.video_file }}' type='video/mp4'>
+                                    </source>
+                                    Your browser does not support the video tag.
+                                </video>
+                                <br>
+                            </a>
+                        </div>
+                        {% endif %} {% endfor %}
                     </div>
-                    {% endif %} {% endfor %}
+                    <div id="nav">
+                        <button class="button-movies" id="prev" type="button">&#8249</button>
+                        <button class="button-movies" id="next" type="button">&#8250</button>
+                    </div>
                 </div>
-                <div id="nav">
-                    <button id="prev" type="button">&#8249</button>
-                    <button id="next" type="button">&#8250</button>
-                </div>
+
             </div>
 
             <div class="movies">
                 <div>
                     <h3>Filme</h3>
                 </div>
-
-                <div class="movies-movies" id="movies">
-                    {% for e in movies %} {% if e.speciality == "Filme" %}
-                    <div class="video-content-2">
-                        <a href="{{ MEDIA_URL }}{{ e.video_file }}">
-                            <video class="clip" id="video" width='250' muted="muted" poster="{{ MEDIA_URL }}{{ e.image_file }}">
-                                <source src='{{ MEDIA_URL }}{{ e.video_file }}' type='video/mp4'>
-                                </source>
-                                Your browser does not support the video tag.
-                            </video>
-                            <br>
-                        </a>
+                <div class="container-content">
+                    <div class="movies-movies" id="movies2">
+                        {% for e in movies %} {% if e.speciality == "Filme" %}
+                        <div class="video-content-2">
+                            <a href="{{ MEDIA_URL }}{{ e.video_file }}">
+                                <video class="clip" id="video" width='250' muted="muted" poster="{{ MEDIA_URL }}{{ e.image_file }}">
+                                    <source src='{{ MEDIA_URL }}{{ e.video_file }}' type='video/mp4'>
+                                    </source>
+                                    Your browser does not support the video tag.
+                                </video>
+                                <br>
+                            </a>
+                        </div>
+                        {% endif %} {% endfor %}
                     </div>
-                    {% endif %} {% endfor %}
-                </div>
-                <div id="nav">
-                    <button id="prev2" type="button">&#8249</button>
-                    <button id="next2" type="button">&#8250</button>
+                    <div id="nav">
+                        <button class="button-movies" id="prev2" type="button">&#8249</button>
+                        <button class="button-movies" id="next2" type="button">&#8250</button>
+                    </div>
                 </div>
             </div>
 
@@ -65,24 +68,25 @@
                 <div>
                     <h3>Serien</h3>
                 </div>
-
-                <div class="serien-movies" id="movies">
-                    {% for e in movies %} {% if e.speciality == "Serien" %}
-                    <div class="video-content-2">
-                        <a href="{{ MEDIA_URL }}{{ e.video_file }}">
-                            <video class="clip" id="video" width='250' muted="muted" poster="{{ MEDIA_URL }}{{ e.image_file }}">
+                <div class="container-content">
+                    <div class="serien-movies" id="movies3">
+                        {% for e in movies %} {% if e.speciality == "Serien" %}
+                        <div class="video-content-2">
+                            <a href="{{ MEDIA_URL }}{{ e.video_file }}">
+                                <video class="clip" id="video" width='250' muted="muted" poster="{{ MEDIA_URL }}{{ e.image_file }}">
                                     <source src='{{ MEDIA_URL }}{{ e.video_file }}' type='video/mp4'>
                                     </source>
                                     Your browser does not support the video tag.
                                 </video>
-                            <br>
-                        </a>
+                                <br>
+                            </a>
+                        </div>
+                        {% endif %} {% endfor %}
                     </div>
-                    {% endif %} {% endfor %}
-                </div>
-                <div id="nav">
-                    <button id="prev3" type="button">&#8249</button>
-                    <button id="next3" type="button">&#8250</button>
+                    <div id="nav">
+                        <button class="button-movies" id="prev3" type="button">&#8249</button>
+                        <button class="button-movies" id="next3" type="button">&#8250</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -106,12 +110,28 @@
 
         const prev = document.getElementById('prev');
         const next = document.getElementById('next');
+        const prev2 = document.getElementById('prev2');
+        const next2 = document.getElementById('next2');
+        const prev3 = document.getElementById('prev3');
+        const next3 = document.getElementById('next3');
         next.onclick = function() {
             document.getElementById('movies').scrollLeft += 400;
+        };
+        next2.onclick = function() {
+            document.getElementById('movies2').scrollLeft += 400;
+        };
+        next3.onclick = function() {
+            document.getElementById('movies3').scrollLeft += 400;
         };
 
         prev.onclick = function() {
             document.getElementById('movies').scrollLeft -= 400;
+        }
+        prev2.onclick = function() {
+            document.getElementById('movies2').scrollLeft -= 400;
+        }
+        prev3.onclick = function() {
+            document.getElementById('movies3').scrollLeft -= 400;
         }
     </script>
 </main>

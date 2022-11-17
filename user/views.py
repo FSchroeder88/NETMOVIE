@@ -13,6 +13,7 @@ from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.contrib.auth import get_user_model
 from .forms import  UserUpdateForm, ProfileUpdateForm
+from django.contrib import messages
 
 def home(request):
     return render(request, 'home.html')    
@@ -99,7 +100,7 @@ def login_view(request, *args, **kwargs):
             email = request.POST['email']
             password = request.POST['password']
             user = authenticate(email=email, password=password)
-
+            
             if user:
                 login(request, user)
                 if destination:
@@ -125,15 +126,13 @@ def get_redirect_if_exists(request):
 @login_required  # Require user logged in before they can access profile page
 def profile_view(request):
    if request.method == 'POST':
-       u_form = UserUpdateForm(request.POST, instance=request.user)
-       p_form = ProfileUpdateForm(request.POST,
-                                  request.FILES,
-                                  instance=request.user.profile)
+       u_form = UserUpdateForm(request.POST, request.FILES, instance=request.user)
+       p_form = ProfileUpdateForm(request.POST, request.FILE, instance=request.user.profile)
        if u_form.is_valid() and p_form.is_valid():
            u_form.save()
            p_form.save()
-           #messages.success(request, f'Your account has been updated!')
-           return redirect('profile')  # Redirect back to profile page
+           messages.success(request, f'Your account has been updated!')
+           return redirect(to='profile')  # Redirect back to profile page
 
    else:
        u_form = UserUpdateForm(instance=request.user)

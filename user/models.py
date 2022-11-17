@@ -1,6 +1,6 @@
 from msilib.schema import ListView
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, User
 from PIL import Image
 
 class AccountManager(BaseUserManager):
@@ -29,7 +29,7 @@ def get_profile_image_filepath(self, filename):
     return f'profile_images/{self.pk}/{"profile_image.png"}'
 
 def get_default_profile_image():
-    return "media/static/images/default.jpg"
+    return "static/images/default.jpg"
 
 class User(AbstractBaseUser):
 
@@ -65,8 +65,7 @@ class User(AbstractBaseUser):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE) # Delete profile when user is deleted
-    # image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    user = models.OneToOneField(User, on_delete=models.CASCADE) # Cascade Delete profile when user is deleted
     image = models.ImageField(default=get_default_profile_image, null=True, blank=True, upload_to=get_profile_image_filepath)
 
     def __str__(self):

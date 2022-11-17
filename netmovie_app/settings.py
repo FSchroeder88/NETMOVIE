@@ -33,6 +33,7 @@ AUTH_USER_MODEL = "user.User"
 # Application definition
 
 INSTALLED_APPS = [
+    'user.apps.ProfilesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'video.apps.VideoConfig',
     'debug_toolbar',
-    'user',
+    # 'user'
+    
 
 ]
 
