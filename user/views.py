@@ -49,15 +49,6 @@ def register_view(request, *args, **kwargs):
             email.send()  
             return HttpResponse('Please confirm your email address to complete the registration')
 
-            # email = form.cleaned_data.get('email').lower()
-            # raw_password = form.cleaned_data.get('password')
-            # account = authenticate(email=email, password=raw_password)
-            # login(request, account)
-            # destination = kwargs.get("next")
-            # if destination:
-            #     return redirect(destination)
-            # return redirect('login')
-
     else:
         form = RegistrationForm()
         context['registration_form'] = form
