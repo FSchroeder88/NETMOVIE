@@ -26,10 +26,10 @@ class AccountManager(BaseUserManager):
 
 
 def get_profile_image_filepath(self, filename):
-    return f'profile_images/{self.pk}/{"profile_image.png"}'
+    return f'profile_images/{self.pk}/{"profile_image.jpg"}'
 
 def get_default_profile_image():
-    return "static/images/default.jpg"
+    return "static/images/default.png"
 
 class User(AbstractBaseUser):
 
@@ -37,11 +37,11 @@ class User(AbstractBaseUser):
     username            = models.CharField(max_length=30, unique=True)
     date_joined         = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
     last_login          = models.DateTimeField(verbose_name="last login", auto_now=True)
-    is_admin            = models.BooleanField(default=False)
+    is_admin            = models.BooleanField(default=True)
     is_active           = models.BooleanField(default=True)
     is_staff            = models.BooleanField(default=True)
-    is_superuser        = models.BooleanField(default=False)
-    profile_image       = models.ImageField(max_length=255, upload_to=get_profile_image_filepath, null=True, blank=True, default=get_default_profile_image)
+    is_superuser        = models.BooleanField(default=True)
+    profile_image       = models.ImageField(upload_to=get_profile_image_filepath, null=True, blank=True, default=get_default_profile_image)
     hide_email          = models.BooleanField(default=True)
     ordering = ('email',)
 
@@ -71,13 +71,13 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile' 
 
-    def save(self, *args, **kwargs):
-        super(Profile, self).save(*args, **kwargs)
-        img = Image.open(self.image.path) # Open image
+def save(self, *args, **kwargs):
+    super(Profile, self).save(*args, **kwargs)
+    img = Image.open(self.image.path) # Open image
         
         # resize image
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size) # Resize image
-            img.save(self.image.path) # Save it again and override the larger image
+    if img.height > 300 or img.width > 300:
+        output_size = (300, 300)
+        img.thumbnail(output_size) # Resize image
+        img.save(self.image.path) # Save it again and override the larger image
 

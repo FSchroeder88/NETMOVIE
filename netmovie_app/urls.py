@@ -6,7 +6,7 @@ from user import views
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from video.views import video
-#from .views import home, index, activate  
+
 
 from user.views import (
     register_view,

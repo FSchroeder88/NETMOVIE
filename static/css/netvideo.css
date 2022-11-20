@@ -386,9 +386,13 @@ h3 {
 
 /* Profile HTML */
 
+.border-profil {
+    border: 1px solid #b7040c;
+}
+
 .profile-image {
-    width: 180px;
-    height: 180px;
+    width: 250px;
+    height: 250px;
 }
 
 .profile-buttons {
@@ -396,7 +400,53 @@ h3 {
 }
 
 .profil-name {
-    margin-bottom: -20px;
+    /* margin-bottom: -20px; */
     display: flex;
     flex-direction: row;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+}
+
+.profil-section {
+    max-width: 350px;
+    border: 1px solid #b7040c;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    object-fit: cover;
+}
+
+.profil-section-container {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+}
+
+.media {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+}
+
+.media-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.profil-email {
+    color: white !important;
 }
