@@ -118,17 +118,18 @@ def get_redirect_if_exists(request):
 def profile_view(request):
    Profile.objects.get_or_create(user=request.user) # Important otherwise no creating a profile
    if request.method == 'POST':
-       u_form = UserUpdateForm(request.POST, request.FILES, instance=request.user)
-       p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-       if p_form.is_valid():
-           u_form.save()
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        u_form = UserUpdateForm(request.POST, request.FILES, instance=request.user)
+       
+        if p_form.is_valid():
+        #    u_form.save()
            p_form.save()
            messages.success(request, f'Your account has been updated!')
-           return redirect(to='profile')  # Redirect back to profile page
+           return redirect('profile')  # Redirect back to profile page
 
    else:
        u_form = UserUpdateForm(instance=request.user)
-       p_form = ProfileUpdateForm(instance=request.user)
+       p_form = ProfileUpdateForm(instance=request.user.profile)
 
    context = {
        'u_form': u_form,

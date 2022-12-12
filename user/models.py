@@ -29,7 +29,7 @@ def get_profile_image_filepath(self, filename):
     return f'profile_images/{self.pk}/{"profile_image.jpg"}'
 
 def get_default_profile_image():
-    return "static/images/default.png"
+    return "static/images/default.jpg"
 
 class User(AbstractBaseUser):
 

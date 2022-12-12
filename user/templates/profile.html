@@ -6,7 +6,9 @@
 
         <div class="col-md-5">
             <div class="media">
-                <img class="profile-image" src="{{  user.profile.image.url }}">
+                {% if user.profile.image %}
+                <img class="profile-image" id="show-dialog" src="{{  user.profile.image.url }}">{% else %}
+                <img class="profile-image" id="show-dialog" src="{% static 'images\default.jpg' %}">{% endif %}
                 <div class="form-group">
                     <form class="profile-form" method="post" enctype="multipart/form-data">
                         {{ p_form.image }}{% csrf_token %}
