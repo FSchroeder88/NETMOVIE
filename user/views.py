@@ -64,11 +64,12 @@ def activate(request, uidb64, token):
         user = None  
     if user is not None and account_activation_token.check_token(user, token):  
         user.is_active = True  
-        user.save()  
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        user.save()
+        return render(request, 'login.html')  
+        # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:  
-        return HttpResponse('Activation link is invalid!')      
-
+        # return HttpResponse('Activation link is invalid!')      
+        return render(request, 'home.html')
 
 def logout_view(request):
     logout(request)
