@@ -6,7 +6,7 @@ from user import views
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from video.views import video
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from user.views import (
     register_view,
@@ -30,4 +30,6 @@ urlpatterns = [
     # path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',  
     #     activate, name="activate"),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += staticfiles_urlpatterns() 
