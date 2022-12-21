@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-hmnqf333=7&981eooch@nazl*ais7%!yoii)ff=spgaqc8z3=5
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'florian-schroeder.developerakademie.org/',
+    'florian-schroeder.developerakademie.org',
     '127.0.0.1',
 
 ]

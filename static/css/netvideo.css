@@ -116,7 +116,9 @@ html {
     justify-content: center;
     align-items: center;
     background-image: url("background.jpg");
-    background-repeat: round;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .header-content {
